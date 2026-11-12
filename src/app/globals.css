@@ -261,7 +261,7 @@
     content: none;
   }
 
-  & :where(figure):not(:where(.not-prose *)) figcaption {
+  & :where(figure):not(:where(.not-prose *, [data-rehype-pretty-code-figure])) figcaption {
     text-align: center;
   }
 }

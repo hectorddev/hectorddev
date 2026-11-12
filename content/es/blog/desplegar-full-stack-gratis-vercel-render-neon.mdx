@@ -1,0 +1,114 @@
+---
+title: Cómo desplegar un proyecto full stack gratis con Vercel, Render y Neon
+description: '[COMPLETAR: resumen de 1 o 2 frases. Se usa en el listado, en buscadores y al compartir el artículo.]'
+# Actualiza la fecha el día que lo publiques (formato AAAA-MM-DD).
+date: 2026-11-12
+tags:
+  - despliegue
+  - vercel
+  - render
+  - neon
+  - full-stack
+# Cambia a false para publicarlo.
+draft: true
+---
+
+{/* Borrador: mientras draft sea true, solo se ve en `npm run dev` y en los Preview de Vercel. Los comentarios como este no se muestran en el sitio. */}
+
+## Introducción
+
+[COMPLETAR: qué vas a desplegar, para quién es esta guía y qué va a tener el lector al terminar.]
+
+{/* Puedes mencionar que esta es la arquitectura que usas en Reporte de Ensayos: /proyectos/reporte-ensayos */}
+
+## La arquitectura
+
+[COMPLETAR: explica qué hace cada pieza y por qué la separas así.]
+
+```text
+Navegador
+    |
+    v
+Vercel  -> frontend (React + Vite)
+    |      peticiones HTTP
+    v
+Render  -> API (Node.js + Express + Prisma)
+    |      conexión PostgreSQL
+    v
+Neon    -> base de datos (PostgreSQL)
+```
+
+## Requisitos previos
+
+- [COMPLETAR: cuentas necesarias (GitHub, Vercel, Render, Neon).]
+- [COMPLETAR: versión de Node.js y estructura del repositorio.]
+
+## 1. Crear la base de datos en Neon
+
+[COMPLETAR]
+
+### Obtener la cadena de conexión
+
+[COMPLETAR]
+
+```bash title=".env"
+# [COMPLETAR: ejemplo con valores ficticios, nunca con credenciales reales]
+DATABASE_URL="postgresql://usuario:contraseña@host/base?sslmode=require"
+```
+
+### Conexión directa y conexión con pooling
+
+[COMPLETAR]
+
+## 2. Desplegar la API en Render
+
+[COMPLETAR]
+
+### Configurar el servicio web
+
+[COMPLETAR: build command, start command, rama y región.]
+
+```bash
+# [COMPLETAR: comandos de build y arranque que usas en Render]
+```
+
+### Variables de entorno de la API
+
+[COMPLETAR]
+
+### Ejecutar las migraciones de Prisma
+
+[COMPLETAR]
+
+## 3. Desplegar el frontend en Vercel
+
+[COMPLETAR]
+
+### Variables de entorno del frontend
+
+[COMPLETAR: cómo apunta el frontend a la URL de la API.]
+
+## 4. Conectar todo: CORS y URLs
+
+[COMPLETAR]
+
+```ts title="server.ts"
+// [COMPLETAR: configuración de CORS que usas en Express]
+```
+
+## Limitaciones del plan gratuito
+
+[COMPLETAR: lo que te encontraste en la práctica.]
+
+<Callout type="aviso" title="Antes de publicar">
+  Revisa los límites actuales de cada plan gratuito en la documentación oficial: cambian con el
+  tiempo.
+</Callout>
+
+## Problemas que encontré y cómo los resolví
+
+[COMPLETAR]
+
+## Conclusión
+
+[COMPLETAR]

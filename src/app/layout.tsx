@@ -53,6 +53,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${dict.blog.title} · ${dict.meta.siteName}`}
+          href="/rss.xml"
+        />
       </head>
       <body className="flex min-h-dvh flex-col">
         <a
