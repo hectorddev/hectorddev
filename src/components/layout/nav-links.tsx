@@ -19,7 +19,7 @@ export function NavLinks({ items, label }: { items: NavItem[]; label: string }) 
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
                 className={cn(
-                  'relative rounded-md px-3 py-2 font-mono text-sm transition-colors',
+                  'relative rounded-md px-3 py-2 font-mono text-sm transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-accent-fg after:transition-transform after:duration-300 hover:after:scale-x-100 motion-reduce:after:transition-none',
                   active ? 'text-fg' : 'text-muted hover:text-fg',
                 )}
               >

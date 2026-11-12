@@ -17,7 +17,7 @@ export const es = {
     closeMenu: 'Cerrar menú',
     darkMode: 'Modo oscuro',
     newTab: '(se abre en una pestaña nueva)',
-    homeLink: 'Hector Márquez, ir al inicio',
+    homeLink: 'ir al inicio',
   },
   nav: {
     home: 'Inicio',

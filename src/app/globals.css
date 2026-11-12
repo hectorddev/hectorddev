@@ -207,6 +207,28 @@
   }
 }
 
+/* Aparición al hacer scroll: animación CSS ligada al scroll (sin JS, no
+ * afecta al LCP). Solo mueve y escala, sin opacidad, para que el texto
+ * mantenga siempre su contraste. Sin soporte, el contenido se ve directo. */
+@keyframes reveal {
+  from {
+    transform: translateY(48px) scale(0.97);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    [data-reveal] {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+
 /* CV impreso: sin navegación ni fondo. */
 @media print {
   :root,
