@@ -32,7 +32,7 @@ const withMDX = createMDX({
         {
           theme: { light: 'github-light', dark: 'github-dark-dimmed' },
           keepBackground: false,
-          defaultLang: { block: 'plaintext', inline: 'plaintext' },
+          defaultLang: { block: 'plaintext' },
         },
       ],
     ],

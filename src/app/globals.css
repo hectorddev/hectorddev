@@ -182,3 +182,155 @@
     opacity: 0;
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Contenido MDX (artículos y casos de estudio)
+ * ------------------------------------------------------------------------- */
+@utility prose-site {
+  --tw-prose-body: var(--fg);
+  --tw-prose-headings: var(--fg);
+  --tw-prose-lead: var(--fg-muted);
+  --tw-prose-links: var(--fg);
+  --tw-prose-bold: var(--fg);
+  --tw-prose-counters: var(--fg-muted);
+  --tw-prose-bullets: var(--accent-fg);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--fg);
+  --tw-prose-quote-borders: var(--accent);
+  --tw-prose-captions: var(--fg-muted);
+  --tw-prose-kbd: var(--fg);
+  --tw-prose-code: var(--fg);
+  --tw-prose-pre-code: var(--fg);
+  --tw-prose-pre-bg: var(--surface);
+  --tw-prose-th-borders: var(--border-strong);
+  --tw-prose-td-borders: var(--border);
+  max-width: 72ch;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+
+  & :where(h2, h3, h4):not(:where(.not-prose *)) {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+    scroll-margin-top: 6rem;
+  }
+
+  & :where(h2):not(:where(.not-prose *)) {
+    margin-top: 2.5em;
+    padding-top: 0.5em;
+    border-top: 1px dashed var(--border);
+  }
+
+  & :where(a):not(:where(.not-prose *, .heading-anchor)) {
+    text-decoration-color: var(--accent-fg);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    font-weight: 500;
+    transition: color 150ms ease;
+  }
+
+  & :where(a):not(:where(.not-prose *, .heading-anchor)):hover {
+    color: var(--accent-fg);
+  }
+
+  & .heading-anchor {
+    margin-left: 0.4em;
+    color: var(--accent-fg);
+    font-family: var(--font-mono);
+    font-weight: 400;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 150ms ease;
+  }
+
+  & :where(h2, h3, h4):hover .heading-anchor {
+    opacity: 1;
+  }
+
+  /* Código en línea */
+  & :where(:not(pre) > code):not(:where(.not-prose *)) {
+    padding: 0.15em 0.4em;
+    border: 1px solid var(--border);
+    border-radius: 0.375rem;
+    background-color: var(--surface-2);
+    font-size: 0.875em;
+    font-weight: 500;
+  }
+
+  & :where(:not(pre) > code):not(:where(.not-prose *))::before,
+  & :where(:not(pre) > code):not(:where(.not-prose *))::after {
+    content: none;
+  }
+
+  & :where(figure):not(:where(.not-prose *)) figcaption {
+    text-align: center;
+  }
+}
+
+/* Bloques de código (rehype-pretty-code + Shiki, tema claro y oscuro) */
+[data-rehype-pretty-code-figure] {
+  margin-block: 1.75em;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  margin: 0;
+  overflow-x: auto;
+  padding-block: 1rem;
+  padding-inline: 0;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background-color: var(--surface);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+[data-rehype-pretty-code-figure] figcaption + div pre,
+[data-rehype-pretty-code-figure] figcaption + pre {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+[data-rehype-pretty-code-figure] code {
+  display: grid;
+  min-width: 100%;
+  font-family: var(--font-mono);
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  padding-inline: 1.25rem;
+  border-left: 2px solid transparent;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  border-left-color: var(--accent-fg);
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  border-radius: 0.25rem;
+  background-color: color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+[data-rehype-pretty-code-title] {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--border);
+  border-bottom: 0;
+  border-radius: 0.75rem 0.75rem 0 0;
+  background-color: var(--surface-2);
+  color: var(--fg-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+[data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-light);
+}
+
+:root[data-theme='dark'] [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) [data-rehype-pretty-code-figure] code span {
+    color: var(--shiki-dark);
+  }
+}
