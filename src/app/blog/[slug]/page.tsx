@@ -5,6 +5,7 @@ import { PostMeta } from '@/components/blog/post-meta';
 import { PostNav } from '@/components/blog/post-nav';
 import { TableOfContents, TocList } from '@/components/blog/table-of-contents';
 import { ArrowLeftIcon } from '@/components/icons';
+import { blogPostingSchema, JsonLd } from '@/components/seo/json-ld';
 import { Container } from '@/components/ui/container';
 import { Tag } from '@/components/ui/tag';
 import { getDictionary } from '@/i18n';
@@ -60,6 +61,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <Container className="py-12 sm:py-16">
+      <JsonLd data={blogPostingSchema(post)} />
       <Link
         href="/blog"
         className="inline-flex min-h-11 items-center gap-2 font-mono text-sm text-muted transition-colors hover:text-accent-fg"

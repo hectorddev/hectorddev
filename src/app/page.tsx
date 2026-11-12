@@ -4,6 +4,7 @@ import { FeaturedProjects } from '@/components/home/featured-projects';
 import { Hero } from '@/components/home/hero';
 import { LatestPosts } from '@/components/home/latest-posts';
 import { StackSection } from '@/components/home/stack-section';
+import { JsonLd, personSchema } from '@/components/seo/json-ld';
 import { getSiteData } from '@/data';
 import { getDictionary } from '@/i18n';
 import { getAllPosts } from '@/lib/content/posts';
@@ -39,6 +40,7 @@ export default async function HomePage() {
 
   return (
     <>
+      <JsonLd data={personSchema()} />
       <Hero dict={dict} profile={profile} />
       <About index={index('about')} dict={dict} profile={profile} />
       <StackSection index={index('stack')} dict={dict} stack={stack} />
