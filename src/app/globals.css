@@ -139,6 +139,7 @@
       transparent 92%
     );
     padding-inline: 0.1em;
+    color: var(--fg);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
   }
@@ -180,6 +181,50 @@
 @keyframes caret-blink {
   50% {
     opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Animaciones de escritorio: solo con JS, pantallas ≥1024px y sin
+ * "reducir movimiento". En móvil y sin JS el contenido se ve directamente.
+ * ------------------------------------------------------------------------- */
+@keyframes terminal-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .js .terminal-line {
+    opacity: 0;
+    animation: terminal-in 450ms ease-out forwards;
+    animation-delay: calc(var(--i, 0) * 180ms + 300ms);
+  }
+}
+
+/* CV impreso: sin navegación ni fondo. */
+@media print {
+  :root,
+  :root[data-theme='dark'] {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #f3f3f3;
+    --border: #d9d9d9;
+    --fg: #000000;
+    --fg-muted: #444444;
+    --accent-fg: #3d5400;
+    color-scheme: light;
+  }
+
+  body > header,
+  body > footer,
+  body > a[href='#contenido'] {
+    display: none !important;
   }
 }
 
