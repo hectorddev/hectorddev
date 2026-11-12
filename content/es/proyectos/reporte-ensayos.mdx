@@ -1,0 +1,75 @@
+---
+title: Reporte de Ensayos — indicadores mensuales
+summary: Módulo de gestión de indicadores mensuales para agrupaciones musicales y orquestales del Sistema de Orquestas, con API, panel de administración y despliegue gratuito en la nube. Código abierto.
+client: Sistema de Orquestas de Venezuela · Táchira
+year: '[COMPLETAR]'
+role: '[COMPLETAR]'
+stack:
+  - TypeScript
+  - React
+  - Vite
+  - Node.js
+  - Express
+  - Prisma
+  - PostgreSQL
+  - Neon
+  - Vercel
+  - Render
+repoUrl: https://github.com/hectorddev/reporte-ensayos
+order: 5
+# cover: /images/proyectos/reporte-ensayos/portada.webp   [COMPLETAR: captura con datos ficticios]
+# coverAlt: Formulario de reporte mensual con datos de ejemplo [COMPLETAR]
+---
+
+{/* REGLA: no mostrar nombres reales ni datos de estudiantes. Capturas solo con datos ficticios. */}
+
+## Contexto
+
+Las agrupaciones musicales y orquestales del Sistema de Orquestas reportan cada mes sus indicadores. Reporte de Ensayos es el módulo que gestiona esos reportes mensuales.
+
+[COMPLETAR: quién lo usa y cómo encaja con el sistema de [Alma Llanera Táchira](/proyectos/alma-llanera-tachira).]
+
+## Problema
+
+[COMPLETAR: cómo se calculaban antes los indicadores y qué problemas había.]
+
+## Mi rol
+
+[COMPLETAR]
+
+## Solución y arquitectura
+
+La aplicación está dividida en tres piezas, todas en planes gratuitos:
+
+| Pieza         | Tecnología                 | Despliegue |
+| ------------- | -------------------------- | ---------- |
+| Frontend      | React + Vite + TypeScript  | Vercel     |
+| API           | Node.js + Express + Prisma | Render     |
+| Base de datos | PostgreSQL                 | Neon       |
+
+Incluye un panel de administración protegido para ver, editar y eliminar los reportes mensuales, y genera constancias en PDF.
+
+La regla de negocio central define quién cuenta en el indicador: un estudiante está **activo** si asistió al menos al 50 % de los ensayos de las últimas 4 semanas (28 días). Solo los estudiantes activos cuentan en la demografía del indicador.
+
+Algunas rutas de la API:
+
+```text
+GET    /api/agrupaciones
+GET    /api/agrupaciones/:id/demografia-activa
+POST   /api/reportes-mensuales
+GET    /api/admin/reportes-mensuales        (requiere admin)
+PUT    /api/admin/reportes-mensuales/:id    (requiere admin)
+DELETE /api/admin/reportes-mensuales/:id    (requiere admin)
+```
+
+## Retos técnicos
+
+[COMPLETAR]
+
+{/* Ideas: cálculo de la matrícula activa con la ventana de 28 días; cierre del reporte mensual; generación de constancias en PDF; desplegar gratis frontend, API y base de datos. Escribe solo lo que realmente hiciste. */}
+
+## Resultado
+
+[COMPLETAR]
+
+El código está disponible en [GitHub](https://github.com/hectorddev/reporte-ensayos).
