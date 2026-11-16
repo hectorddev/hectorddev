@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { imageSize } from 'image-size';
 import Image from 'next/image';
 import type { ComponentPropsWithoutRef } from 'react';
 
@@ -35,19 +38,31 @@ export function Figure({ src, alt, width, height, caption, narrow }: FigureProps
 }
 
 /**
- * Imágenes en sintaxis Markdown `![alt](src)`. Sin dimensiones conocidas se
- * asume 16:9; para capturas usa mejor <Figure> con width y height reales.
+ * Imágenes en sintaxis Markdown `![alt](src)`, por ejemplo las que se suben
+ * desde el panel. Si la imagen está en /public se leen sus dimensiones reales
+ * (evita saltos de diseño); si no, se asume 16:9.
  */
 export function MdxImage({ src, alt, width, height }: ComponentPropsWithoutRef<'img'>) {
   if (typeof src !== 'string') return null;
+  const size = width && height ? null : readPublicImageSize(src);
   return (
     <Image
       src={src}
       alt={alt ?? ''}
-      width={Number(width) || 1600}
-      height={Number(height) || 900}
+      width={Number(width) || size?.width || 1600}
+      height={Number(height) || size?.height || 900}
       sizes={sizes}
       className={imageClass}
     />
   );
+}
+
+function readPublicImageSize(src: string): { width: number; height: number } | null {
+  if (!src.startsWith('/')) return null;
+  try {
+    const { width, height } = imageSize(readFileSync(path.join(process.cwd(), 'public', src)));
+    return width && height ? { width, height } : null;
+  } catch {
+    return null;
+  }
 }

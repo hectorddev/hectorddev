@@ -10,7 +10,7 @@ export function Header({ dict }: { dict: Dictionary }) {
   const items = getNavItems(dict);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-bg/80 backdrop-blur-md supports-[backdrop-filter]:bg-bg/70">
+    <header className="sticky top-0 z-40 border-b border-border/70 bg-bg/80 backdrop-blur-md supports-[backdrop-filter]:bg-bg/70 print:hidden">
       <Container className="flex h-16 items-center justify-between gap-4">
         <Logo label={dict.a11y.homeLink} />
         <div className="flex items-center gap-1">

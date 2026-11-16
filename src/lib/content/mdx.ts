@@ -12,7 +12,7 @@ export async function loadMdx(
   locale: Locale,
   slug: string,
 ): Promise<MDXContent> {
-  const mod = (await import(`@content/${locale}/${collection}/${slug}.mdx`)) as {
+  const mod = (await import(`../../../content/${locale}/${collection}/${slug}.mdx`)) as {
     default: MDXContent;
   };
   return mod.default;

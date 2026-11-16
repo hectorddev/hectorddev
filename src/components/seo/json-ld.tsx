@@ -49,7 +49,6 @@ export function blogPostingSchema(post: Post): JsonLdData {
     keywords: post.tags.join(', '),
     url: absoluteUrl(post.url),
     mainEntityOfPage: absoluteUrl(post.url),
-    image: absoluteUrl(`${post.url}/opengraph-image`),
     author: { '@type': 'Person', name: dict.meta.siteName, url: absoluteUrl('/') },
   };
 }

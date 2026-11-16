@@ -1,12 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import { Bricolage_Grotesque, Geist, JetBrains_Mono } from 'next/font/google';
 import type { ReactNode } from 'react';
-import { Footer } from '@/components/layout/footer';
-import { Header } from '@/components/layout/header';
 import { defaultLocale, getDictionary } from '@/i18n';
 import { siteUrl } from '@/lib/site-url';
 import { themeInitScript } from '@/lib/theme';
-import './globals.css';
 
 const display = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -44,6 +41,11 @@ export const viewport: Viewport = {
   ],
 };
 
+/**
+ * Layout raíz mínimo: compartido por el sitio público, `(site)`, y el panel
+ * de contenido, `/keystatic`. Los estilos y el header del sitio viven en
+ * `(site)/layout.tsx` para no interferir con la interfaz del panel.
+ */
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
@@ -60,19 +62,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           href="/rss.xml"
         />
       </head>
-      <body className="flex min-h-dvh flex-col">
-        <a
-          href="#contenido"
-          className="sr-only z-50 rounded-md bg-accent px-4 py-2 font-mono text-sm text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
-        >
-          {dict.a11y.skipToContent}
-        </a>
-        <Header dict={dict} />
-        <main id="contenido" tabIndex={-1} className="flex-1 outline-none">
-          {children}
-        </main>
-        <Footer dict={dict} />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

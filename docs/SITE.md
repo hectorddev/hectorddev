@@ -55,10 +55,13 @@ public/                   archivos estáticos (CV en PDF, imágenes)
 scripts/                  utilidades (content-pending.mjs)
 src/
   app/                    rutas (App Router)
-    page.tsx              inicio
-    proyectos/            listado y /proyectos/[slug]
-    blog/                 listado, /blog/[slug] y /blog/tags/[tag]
-    cv/                   CV web
+    (site)/               páginas públicas (el grupo no cambia las URLs)
+      page.tsx            inicio
+      proyectos/          listado y /proyectos/[slug]
+      blog/               listado, /blog/[slug] y /blog/tags/[tag]
+      cv/                 CV web
+    keystatic/            panel para escribir artículos (/keystatic)
+    api/keystatic/        autenticación y guardado del panel
     rss.xml/              feed RSS
     sitemap.ts robots.ts manifest.ts
     opengraph-image.tsx   imagen OG por defecto (+ una por artículo y por proyecto)
@@ -68,27 +71,79 @@ src/
   i18n/                   configuración de idiomas y diccionario de textos de interfaz
   lib/content/            lectura y validación del contenido MDX
   mdx-components.tsx      componentes disponibles dentro de los MDX
+keystatic.config.ts       campos del panel de artículos
 docs/SITE.md              esta guía
 ```
 
 ## Qué se edita dónde
 
-| Quiero cambiar…                                     | Archivo                       |
-| --------------------------------------------------- | ----------------------------- |
-| Correo, LinkedIn, GitHub, ruta del PDF              | `src/config/site.ts`          |
-| Hero, "Sobre mí", datos rápidos, terminal del hero  | `src/data/es/profile.ts`      |
-| Stack por área                                      | `src/data/es/stack.ts`        |
-| Experiencia, educación e idiomas del CV             | `src/data/es/cv.ts`           |
-| Textos de la interfaz (botones, títulos, etiquetas) | `src/i18n/dictionaries/es.ts` |
-| Colores, tipografía, estilos del contenido          | `src/app/globals.css`         |
-| Un caso de estudio o un artículo                    | `content/es/…/<slug>.mdx`     |
+| Quiero cambiar…                                     | Archivo                           |
+| --------------------------------------------------- | --------------------------------- |
+| Correo, LinkedIn, GitHub, ruta del PDF              | `src/config/site.ts`              |
+| Hero, "Sobre mí", datos rápidos, terminal del hero  | `src/data/es/profile.ts`          |
+| Stack por área                                      | `src/data/es/stack.ts`            |
+| Experiencia, educación e idiomas del CV             | `src/data/es/cv.ts`               |
+| Textos de la interfaz (botones, títulos, etiquetas) | `src/i18n/dictionaries/es.ts`     |
+| Colores, tipografía, estilos del contenido          | `src/app/globals.css`             |
+| Un artículo del blog                                | Panel `/keystatic` o el `.mdx`    |
+| Un caso de estudio                                  | `content/es/proyectos/<slug>.mdx` |
 
 ## CV en PDF
 
 Copia tu archivo a `public/cv-hector-marquez.pdf`. Los botones "Descargar CV" del inicio y de
 `/cv` ya apuntan ahí. Si quieres otro nombre, cambia `cvPdf` en `src/config/site.ts`.
 
-## Agregar un artículo
+## Escribir artículos desde el panel (/keystatic)
+
+El sitio trae un panel de contenido con [Keystatic](https://keystatic.com). Escribe en un editor
+visual y guarda los mismos archivos `.mdx` de `content/es/blog/`, sin base de datos.
+
+| Dónde                                      | Qué pasa al guardar                                                                                   |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| `npm run dev` → `localhost:3000/keystatic` | Escribe el archivo en tu carpeta. Haces commit tú.                                                    |
+| Producción → `tu-dominio/keystatic`        | Inicias sesión con GitHub y cada guardado es un commit en el repo; Vercel redespliega en 1–2 minutos. |
+
+Solo pueden entrar cuentas de GitHub con permiso de escritura en el repositorio.
+
+**Flujo recomendado:** crea el artículo con **Borrador** marcado, escríbelo con calma y,
+cuando esté listo, desmárcalo y guarda. Para revisarlo antes de publicarlo, en el panel puedes
+crear una rama (menú de ramas arriba a la izquierda): Vercel genera un Preview de esa rama, donde
+los borradores sí se ven.
+
+**Lo que ofrece el editor:** títulos (h2–h4), negrita, cursiva, listas, citas, tablas, enlaces,
+bloques de código con lenguaje, imágenes (se suben a `public/images/blog/` y el sitio lee sus
+medidas reales) y el componente _Nota destacada_ (`<Callout>`).
+
+**Limitaciones del editor:**
+
+- No admite comentarios MDX (`{/* … */}`). Si un artículo los tiene, el panel no lo abre.
+- En los bloques de código conserva el nombre de archivo (`title="archivo.ts"`), pero no las
+  líneas resaltadas (`{2-3}`). Si las necesitas, agrégalas a mano en el `.mdx`.
+- `<Figure>` no está en el editor; las imágenes del panel usan la sintaxis Markdown.
+
+### Configurar el panel en producción (una sola vez)
+
+El modo GitHub necesita una GitHub App. Keystatic la crea por ti:
+
+1. En local, crea un archivo `.env.local` con `NEXT_PUBLIC_KEYSTATIC_STORAGE=github` y corre
+   `npm run dev`.
+2. Abre `http://localhost:3000/keystatic` y sigue el asistente para crear la GitHub App
+   (ponle un nombre como `hectorddev-panel`). Al terminar, Keystatic escribe en `.env.local`:
+   `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET` y
+   `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`.
+3. Instala la app en el repositorio `hectorddev/hectorddev` cuando GitHub te lo pida.
+4. Copia esas cuatro variables a Vercel → _Settings → Environment Variables_ (Production y
+   Preview) y redespliega.
+5. En la configuración de la GitHub App (GitHub → _Settings → Developer settings → GitHub
+   Apps_), agrega como _Callback URL_:
+   `https://<tu-dominio>/api/keystatic/github/oauth/callback` (y la del dominio de Vercel si
+   también lo usas).
+6. Quita `NEXT_PUBLIC_KEYSTATIC_STORAGE=github` de `.env.local` para volver al modo local.
+
+Mientras esas variables no existan, `/keystatic` en producción muestra el botón de GitHub pero la
+API responde "El panel de contenido aún no está configurado"; el resto del sitio funciona normal.
+
+## Agregar un artículo a mano
 
 1. Crea `content/es/blog/<slug>.mdx`. El nombre del archivo es la URL: `/blog/<slug>`.
    Usa minúsculas y guiones, sin tildes.

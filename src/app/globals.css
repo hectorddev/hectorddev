@@ -242,12 +242,6 @@
     --accent-fg: #3d5400;
     color-scheme: light;
   }
-
-  body > header,
-  body > footer,
-  body > a[href='#contenido'] {
-    display: none !important;
-  }
 }
 
 /* ---------------------------------------------------------------------------

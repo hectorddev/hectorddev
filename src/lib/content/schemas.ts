@@ -9,7 +9,8 @@ export const postFrontmatterSchema = z.strictObject({
   title: z.string().min(1),
   description: z.string().min(1),
   date: isoDate,
-  updated: isoDate.optional(),
+  // El panel (Keystatic) escribe null cuando el campo queda vacío.
+  updated: isoDate.nullish().transform((value) => value ?? undefined),
   tags: z.array(z.string().min(1)).default([]),
   draft: z.boolean().default(false),
 });

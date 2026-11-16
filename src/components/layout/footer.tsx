@@ -10,7 +10,7 @@ export function Footer({ dict }: { dict: Dictionary }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 border-t border-border">
+    <footer className="mt-24 border-t border-border print:hidden">
       <Container className="flex flex-col gap-8 py-10 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex flex-col gap-3">
           <Logo label={dict.a11y.homeLink} />

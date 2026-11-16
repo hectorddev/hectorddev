@@ -29,7 +29,7 @@ export function Callout({
         styles[type],
       )}
     >
-      <p className="mb-1 font-mono text-xs tracking-wider text-muted uppercase">{title ?? type}</p>
+      <p className="mb-1 font-mono text-xs tracking-wider text-muted uppercase">{title || type}</p>
       <div className="[&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-accent-fg [&>p]:my-1">
         {children}
       </div>
