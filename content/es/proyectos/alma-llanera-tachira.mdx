@@ -1,6 +1,6 @@
 ---
 title: Alma Llanera Táchira — reportes y asistencia
-summary: Sistema en producción para la orquesta regional del programa Alma Llanera en Táchira. Los núcleos cargan reportes semanales, los encargados de seccional pasan asistencia y la coordinación consolida todo en un panel.
+summary: Sistema en producción para la orquesta regional del programa Alma Llanera en Táchira. Los núcleos cargan reportes semanales, la coordinación los revisa y aprueba en un panel, y el sistema genera los archivos oficiales de cada semana.
 client: Sistema de Orquestas de Venezuela · programa Alma Llanera, Táchira
 year: '[COMPLETAR]'
 role: '[COMPLETAR]'
@@ -11,23 +11,23 @@ liveUrl: https://alma-llanera.world
 status: en-produccion
 featured: true
 order: 2
-# Capturas: solo páginas públicas o datos ficticios (nunca el panel con datos reales).
-cover: /images/proyectos/alma-llanera-tachira/portada.webp
-coverAlt: Página de inicio de Alma Llanera Táchira con los tres accesos al sistema, para responsables de núcleo, encargados de seccional y coordinación.
+# Capturas del panel con datos ficticios (núcleos, personas, contactos y lugares reemplazados).
+cover: /images/proyectos/alma-llanera-tachira/panel.webp
+coverAlt: Panel de coordinación con la convocatoria semanal, una barra de cuántos núcleos entregaron, contadores por estado y la lista de reportes por revisar, con nombres de núcleos ficticios.
 ---
 
 {/* REGLA: nunca mostrar enlaces privados, nombres reales ni datos de estudiantes. Capturas solo con datos ficticios. */}
 
 <Callout type="nota" title="Privacidad">
-  Este caso de estudio no muestra enlaces privados, nombres reales ni datos de estudiantes. Las
-  capturas son de páginas públicas o usan datos ficticios.
+  Este caso de estudio no muestra enlaces privados, nombres reales ni datos de estudiantes. En las
+  capturas del panel, los nombres de núcleos, personas, contactos y lugares son ficticios.
 </Callout>
 
 ## Contexto
 
-La orquesta regional del programa Alma Llanera en el estado Táchira forma parte del Sistema de Orquestas de Venezuela. Cada núcleo entrega un reporte semanal y los encargados de cada seccional de la orquesta pasan asistencia.
+La orquesta regional del programa Alma Llanera en el estado Táchira forma parte del Sistema de Orquestas de Venezuela. Cada núcleo entrega un reporte semanal de sus actividades y los encargados de cada seccional de la orquesta pasan asistencia.
 
-[COMPLETAR: cuántos núcleos o personas usan el sistema, si es un dato que se pueda publicar.]
+Cada semana, la coordinación estatal tiene que entregar un instrumento de seguimiento y dos agendas de actividades, en formatos específicos, a partir de los reportes de todos los núcleos.
 
 ## Problema
 
@@ -49,17 +49,49 @@ El sistema tiene tres tipos de acceso, pensados para cada responsable:
 
 La página de inicio le indica a cada perfil cómo entrar y recuerda que los enlaces privados no se comparten en grupos: quien tenga un enlace puede registrar en nombre de quien lo recibió.
 
-{/* [COMPLETAR: capturas del panel de coordinación, SOLO con datos ficticios.] */}
-
 [COMPLETAR: por qué elegiste enlaces privados para núcleos y seccionales, y cómo se generan y revocan.]
 
-Stack: Next.js. [CONFIRMAR: base de datos, autenticación del panel y hosting.]
+### El ciclo de cada semana
+
+1. **Convocatoria.** La coordinación abre una convocatoria con fecha de entrega y plazo para correcciones. Es la que ven los enlaces de los núcleos.
+2. **Reporte del núcleo.** Cada núcleo carga las actividades ejecutadas y programadas de la semana (conciertos, encuentros didácticos y otras) con lugar, niveles, estrategia, alcance, impacto y participantes por categoría: niñas, niños, adolescentes y adultos.
+3. **Revisión.** El panel muestra cuántos núcleos entregaron, cuáles llegaron fuera de plazo y cuáles no enviaron. La coordinación revisa cada reporte actividad por actividad, marca cada una como correcta o le anota una corrección, y al final lo aprueba o lo rechaza.
+4. **Entrega.** Con lo aprobado, el sistema genera los tres archivos Excel de la semana: el instrumento de seguimiento del estado y las agendas para Fundamusical y para el Viceministerio. La coordinación registra cuándo los envió y el sistema guarda una copia exacta de los archivos.
+5. **Archivo.** Las convocatorias cerradas se consultan tal como quedaron y el histórico completo se puede descargar.
+
+<Figure
+  src="/images/proyectos/alma-llanera-tachira/panel-reporte.webp"
+  alt="Detalle del reporte de un núcleo: estado pendiente de revisión, responsable con contacto ficticio, progreso de revisión y la primera actividad ejecutada con descripción, lugar, niveles, estrategia, alcance y participantes por categoría."
+  width={1600}
+  height={900}
+  caption="Revisión de un reporte, actividad por actividad."
+/>
+
+<Figure
+  src="/images/proyectos/alma-llanera-tachira/panel-entrega.webp"
+  alt="Pantalla Preparar entrega: aviso de reportes con actividades sin aprobar, número de la entrega y los archivos Excel del instrumento de seguimiento y la agenda de Fundamusical con botón Descargar."
+  width={1600}
+  height={900}
+  caption="Generación de los archivos oficiales de la semana a partir de lo aprobado."
+/>
+
+<Figure
+  src="/images/proyectos/alma-llanera-tachira/panel-convocatorias.webp"
+  alt="Pantalla Convocatorias: convocatoria abierta con plazos de entrega y correcciones, y el archivo de convocatorias anteriores con cuántos núcleos entregaron y si se registró el envío."
+  width={1600}
+  height={900}
+  caption="Convocatorias abiertas y archivo histórico."
+/>
+
+El panel también incluye mensajes, la gestión de los enlaces privados y, para la orquesta, integrantes, incidencias y encargados de seccional.
+
+Stack: Next.js. [CONFIRMAR: base de datos, autenticación del panel, generación de los Excel y hosting.]
 
 ## Retos técnicos
 
 [COMPLETAR]
 
-{/* Ideas: seguridad de los enlaces privados (alcance por núcleo, revocación); uso desde el teléfono con mala conexión; consolidación de datos para el panel. Escribe solo lo que realmente hiciste. */}
+{/* Ideas: seguridad de los enlaces privados (alcance por núcleo, revocación); revisión por actividad y versiones del reporte; generar los Excel con los formatos exactos que piden; guardar copia exacta de lo enviado. Escribe solo lo que realmente hiciste. */}
 
 ## Resultado
 
