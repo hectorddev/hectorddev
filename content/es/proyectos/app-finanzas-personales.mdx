@@ -1,29 +1,36 @@
 ---
-title: App de finanzas personales
-summary: Aplicación para Android que ayuda a gestionar las finanzas personales. Próximamente en Google Play.
-# [CONFIRMAR: ¿proyecto propio?]
+title: 610money — finanzas personales multimoneda
+summary: App Android y web para llevar gastos, ingresos y fondos en dólares, bolívares, USDT y pesos colombianos, con registro por voz desde un widget y funcionamiento sin conexión.
 client: Proyecto propio
 year: '[COMPLETAR]'
 role: '[COMPLETAR]'
 stack:
   - React Native
+  - Expo
+  - Next.js
   - SQL
-status: proximamente
+  - Google Gemini
+liveUrl: https://610money-web.vercel.app
+status: beta
 featured: true
 order: 4
-# Cuando esté publicada, agrega el enlace de Google Play:
-# liveUrl: https://play.google.com/store/apps/details?id=...   [COMPLETAR]
-# cover: /images/proyectos/app-finanzas-personales/portada.webp   [COMPLETAR]
-# coverAlt: Pantallas de la app con datos de ejemplo               [COMPLETAR]
+cover: /images/proyectos/app-finanzas-personales/portada.webp
+coverAlt: Tres pantallas de 610money en un teléfono, con datos de ejemplo y montos difuminados. A la izquierda, el análisis de gastos por necesidad y por sentimiento; al centro, el inicio con el patrimonio total y el resumen del mes; a la derecha, los presupuestos con alertas y el reparto mensual.
 ---
+
+{/* Capturas de una cuenta real con nombre, categorías y montos ofuscados. No publicar datos reales. */}
 
 ## Contexto
 
-[COMPLETAR: por qué decidiste construir esta app y para quién es.]
+En Venezuela el dinero de una persona suele estar repartido entre varias monedas: cobra una parte en dólares, paga en bolívares, ahorra en USDT y a veces maneja pesos colombianos o efectivo. 610money reúne esos fondos y movimientos en una sola vista, sin obligar a llevar una hoja de cálculo.
+
+El nombre viene de 1 Timoteo 6:10: entender y administrar el dinero con intención, sin vivir para él. Por eso la app acompaña sin regañar ni alarmar.
+
+[COMPLETAR: por qué decidiste construirla.]
 
 ## Problema
 
-[COMPLETAR]
+[COMPLETAR: qué problema concreto viste (por ejemplo, saber cuánto tienes realmente entre monedas con tasas que cambian) y por qué otras apps no lo resolvían.]
 
 ## Mi rol
 
@@ -31,14 +38,23 @@ order: 4
 
 ## Solución y arquitectura
 
-App para Android construida con React Native y SQL. [COMPLETAR: funciones principales, dónde se guardan los datos (local o servidor) y cómo está organizada.]
+- **Multimoneda de verdad:** fondos en USD, Bs, USDT y COP, con tasas de cambio y un patrimonio total consolidado.
+- **Registro por voz desde un widget de Android:** la persona dice algo como "Gasté 10 dólares en comida", Google Gemini interpreta el audio y la persona revisa el movimiento antes de guardarlo. El registro manual siempre está disponible.
+- **Funciona sin conexión:** los movimientos manuales se guardan en el dispositivo y se sincronizan después, sin duplicarse.
+- **Análisis:** gasto por necesidad (vital o gusto), por sentimiento, categorías principales, compromisos fijos y un análisis con IA del periodo elegido.
+- **Presupuestos por sobres:** el ingreso se reparte por categoría (mensual, quincenal o semanal) y la app avisa cuando un sobre se superó o va a superarse a este ritmo.
+- **Versión web** con la misma cuenta y una landing pública para instalar la beta.
+
+La app Android está hecha con React Native y Expo, y la beta se distribuye como APK desde Expo mientras se prepara la publicación en Google Play. La web usa Next.js. [COMPLETAR: backend, base de datos SQL y cómo se sincronizan los datos sin conexión.]
 
 ## Retos técnicos
 
 [COMPLETAR]
 
-{/* Ideas: modelo de datos de cuentas y movimientos; funcionamiento sin conexión; publicación en Google Play. Escribe solo lo que realmente hiciste. */}
+{/* Ideas: sincronización sin conexión sin duplicados; widget de Android con voz; interpretación con Gemini y revisión antes de guardar; consolidación entre monedas con tasas que cambian. Escribe solo lo que realmente hiciste. */}
 
 ## Resultado
 
-La app está por publicarse en Google Play. [COMPLETAR: actualiza esta sección cuando salga.]
+La beta para Android (versión 1.0.2) ya se puede instalar y la publicación en Google Play está en preparación.
+
+[COMPLETAR: usuarios de la beta o aprendizajes, si quieres compartirlos.]

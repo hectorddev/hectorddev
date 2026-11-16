@@ -215,7 +215,7 @@ Agrega `narrow` a <Figure> para capturas verticales, cuadradas o de móvil (se m
    | `coverAlt` | si hay `cover` | Texto alternativo de la portada (accesibilidad).                                             |
    | `featured` | no             | `true` = aparece en "Proyectos destacados" del inicio.                                       |
    | `order`    | no             | Orden en los listados (menor primero).                                                       |
-   | `status`   | no             | `en-produccion` o `proximamente` (insignia en la tarjeta).                                   |
+   | `status`   | no             | `en-produccion`, `beta` o `proximamente` (insignia en la tarjeta).                           |
 
 3. Usa esta estructura de secciones:
 

@@ -63,6 +63,7 @@ export const es = {
     others: 'Otros proyectos',
     status: {
       'en-produccion': 'En producción',
+      beta: 'Beta',
       proximamente: 'Próximamente',
     },
   },

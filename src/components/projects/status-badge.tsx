@@ -4,7 +4,7 @@ import { cn } from '@/lib/cn';
 
 export function StatusBadge({ status, className }: { status: ProjectStatus; className?: string }) {
   const dict = getDictionary();
-  const live = status === 'en-produccion';
+  const live = status !== 'proximamente';
 
   return (
     <span

@@ -16,7 +16,7 @@ export const postFrontmatterSchema = z.strictObject({
 
 export type PostFrontmatter = z.infer<typeof postFrontmatterSchema>;
 
-export const projectStatuses = ['en-produccion', 'proximamente'] as const;
+export const projectStatuses = ['en-produccion', 'beta', 'proximamente'] as const;
 
 /** Frontmatter de un caso de estudio. */
 export const projectFrontmatterSchema = z
