@@ -26,7 +26,7 @@ export const cv = {
         'Constructor Center (Chile): e-commerce de ferretería y materiales de construcción (constructorcenter.cl) con catálogo por sucursal, gestión de ofertas e integración de pasarela de pago.',
         'Alma Llanera Táchira: sistema en producción de reportes semanales y asistencia para la orquesta regional, con panel de coordinación.',
         'Nueva Copiapó (Chile): sitio web del operador del transporte público eléctrico de Copiapó (nuevacopiapo.cl), con sección de noticias y panel de administración interno.',
-        'Knits and Weaves (Chile): tienda en Shopify, desarrollo y personalización.',
+        'Knits and Weaves (Chile): tienda de moda en Shopify (knitsandweaves.cl), tema Taiga personalizado con Liquid, con colecciones, cápsulas y canal mayorista.',
       ],
     },
   ] satisfies CvExperience[],
