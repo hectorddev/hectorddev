@@ -159,6 +159,8 @@ app.use(express.json());
   caption="Pie de foto opcional"
 />
 
+Agrega `narrow` a <Figure> para capturas verticales, cuadradas o de móvil (se muestran más angostas y centradas).
+
 {/* Comentario: no se muestra en el sitio. */}
 ````
 
@@ -187,6 +189,9 @@ app.use(express.json());
      - PostgreSQL
    liveUrl: https://ejemplo.com
    repoUrl: https://github.com/hectorddev/repo
+   links:
+     - label: Panel de administración
+       url: https://admin.ejemplo.com
    cover: /images/proyectos/<slug>/portada.webp
    coverAlt: Descripción de la captura
    featured: false
@@ -195,21 +200,22 @@ app.use(express.json());
    ---
    ```
 
-   | Campo      | Obligatorio    | Notas                                                             |
-   | ---------- | -------------- | ----------------------------------------------------------------- |
-   | `title`    | sí             |                                                                   |
-   | `summary`  | sí             | Se usa en tarjetas, metadatos e imagen OG.                        |
-   | `client`   | sí             | Cliente o contexto.                                               |
-   | `year`     | sí             | Texto libre: `'2024'`, `'2021 – 2024'`.                           |
-   | `role`     | sí             |                                                                   |
-   | `stack`    | sí             | Lista de tecnologías.                                             |
-   | `liveUrl`  | no             | URL completa. Muestra el botón "Ver en vivo".                     |
-   | `repoUrl`  | no             | URL completa. Muestra el botón "Ver código".                      |
-   | `cover`    | no             | Ruta dentro de `public/`. Sin portada se muestra una tipográfica. |
-   | `coverAlt` | si hay `cover` | Texto alternativo de la portada (accesibilidad).                  |
-   | `featured` | no             | `true` = aparece en "Proyectos destacados" del inicio.            |
-   | `order`    | no             | Orden en los listados (menor primero).                            |
-   | `status`   | no             | `en-produccion` o `proximamente` (insignia en la tarjeta).        |
+   | Campo      | Obligatorio    | Notas                                                                                        |
+   | ---------- | -------------- | -------------------------------------------------------------------------------------------- |
+   | `title`    | sí             |                                                                                              |
+   | `summary`  | sí             | Se usa en tarjetas, metadatos e imagen OG.                                                   |
+   | `client`   | sí             | Cliente o contexto.                                                                          |
+   | `year`     | sí             | Texto libre: `'2024'`, `'2021 – 2024'`.                                                      |
+   | `role`     | sí             |                                                                                              |
+   | `stack`    | sí             | Lista de tecnologías.                                                                        |
+   | `liveUrl`  | no             | URL completa. Muestra el botón "Ver en vivo".                                                |
+   | `repoUrl`  | no             | URL completa. Muestra el botón "Ver código".                                                 |
+   | `links`    | no             | Enlaces extra con texto propio (`label` + `url`), p. ej. si el proyecto tiene varios sitios. |
+   | `cover`    | no             | Ruta dentro de `public/`. Sin portada se muestra una tipográfica.                            |
+   | `coverAlt` | si hay `cover` | Texto alternativo de la portada (accesibilidad).                                             |
+   | `featured` | no             | `true` = aparece en "Proyectos destacados" del inicio.                                       |
+   | `order`    | no             | Orden en los listados (menor primero).                                                       |
+   | `status`   | no             | `en-produccion` o `proximamente` (insignia en la tarjeta).                                   |
 
 3. Usa esta estructura de secciones:
 

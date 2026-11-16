@@ -1,6 +1,6 @@
 ---
 title: Plataforma de certificación y capacitación para minería
-summary: Portal para consultar los certificados de los trabajadores del sector minero que evolucionó a una intranet de e-learning, donde la empresa crea cursos y capacita a su personal en línea.
+summary: Sitio corporativo, verificador público de certificados e intranet de e-learning para FSM SpA, empresa chilena de capacitación y servicios para la industria y la minería.
 client: FSM SpA (Chile) · subcontratado por SkyAds
 year: '[COMPLETAR]'
 role: '[COMPLETAR]'
@@ -10,22 +10,25 @@ stack:
   - Node.js
   - MongoDB
   - AWS
+links:
+  - label: Sitio de FSM SpA
+    url: https://www.fsmspa.com
+  - label: Verificador de certificados
+    url: https://certificate.fsmspa.com
+cover: /images/proyectos/plataforma-capacitacion-mineria/portada.webp
+coverAlt: Página de inicio del sitio de FSM SpA con el menú, los accesos al portal de estudiantes y al verificador de certificaciones, y una foto de su centro de entrenamiento.
+status: en-produccion
 featured: true
 order: 1
-# Portada: agrega una captura con datos ficticios y descomenta estas líneas.
-# cover: /images/proyectos/plataforma-capacitacion-mineria/portada.webp   [COMPLETAR]
-# coverAlt: Panel de administración de cursos con datos de ejemplo        [COMPLETAR]
 ---
 
 {/* Código privado del cliente: no enlazar repositorios ni mostrar datos reales de trabajadores. */}
 
 ## Contexto
 
-Proyecto para FSM SpA (Chile), enfocado en el sector minero. Participé como desarrollador subcontratado por SkyAds.
+FSM SpA es una empresa con casa matriz en Iquique, Chile, que presta servicios técnicos a la industria y la minería: capacitación y certificación de trabajadores, consultoría, asesoría y servicios de emergencias, seguridad y salud ocupacional. Participé en el proyecto como desarrollador subcontratado por SkyAds.
 
-La plataforma empezó como un portal web para consultar los certificados de los trabajadores del sector minero y, con el tiempo, evolucionó a una intranet de e-learning donde la empresa crea cursos y capacita a su personal en línea.
-
-[COMPLETAR: a qué se dedica FSM SpA y quiénes usan la plataforma.]
+Para FSM construí su sitio corporativo y la plataforma de certificación y capacitación. La plataforma empezó como un portal web para consultar los certificados de los trabajadores del sector minero y, con el tiempo, evolucionó a una intranet de e-learning donde la empresa crea cursos y capacita a su personal en línea.
 
 ## Problema
 
@@ -37,12 +40,30 @@ La plataforma empezó como un portal web para consultar los certificados de los 
 
 ## Solución y arquitectura
 
-El proyecto creció en dos etapas:
+El proyecto tiene tres piezas:
 
-1. **Portal de certificados:** consulta web de los certificados de los trabajadores.
-2. **Intranet de e-learning:** la empresa crea cursos y capacita a su personal en línea.
+### Sitio corporativo
 
-La arquitectura separa la aplicación en frontends independientes, uno por tipo de usuario:
+[fsmspa.com](https://www.fsmspa.com), hecho con Next.js. Presenta la empresa, sus servicios, noticias y capacitaciones, y da acceso directo al portal de estudiantes y clientes y al verificador de certificaciones.
+
+[COMPLETAR: de dónde salen las noticias y los cursos (panel de administración, CMS, API).]
+
+### Verificador de certificados
+
+[certificate.fsmspa.com](https://certificate.fsmspa.com), también con Next.js. Cualquier persona ingresa el RUT del trabajador y comprueba los certificados emitidos por FSM Capacitación. Como la consulta usa el RUT, antes de buscar se acepta la política de privacidad.
+
+<Figure
+  src="/images/proyectos/plataforma-capacitacion-mineria/verificador.webp"
+  alt="Formulario de validación de certificados de FSM: logo, código QR, campo para ingresar el RUT del trabajador y botón Validar."
+  width={1360}
+  height={1360}
+  caption="Verificador público de certificados."
+  narrow
+/>
+
+### Intranet de e-learning
+
+La empresa crea cursos y capacita a su personal en línea. La arquitectura separa la aplicación en frontends independientes, uno por tipo de usuario:
 
 | Frontend       | Para qué sirve |
 | -------------- | -------------- |
@@ -50,6 +71,8 @@ La arquitectura separa la aplicación en frontends independientes, uno por tipo 
 | Coaches        | [COMPLETAR]    |
 | Estudiantes    | [COMPLETAR]    |
 | Autenticación  | [COMPLETAR]    |
+
+{/* [CONFIRMAR: ¿el "Portal de estudiantes y clientes" que enlaza el sitio (auth.fsmspa.com) es el frontend de autenticación? Si sí, se puede enlazar aquí.] */}
 
 Stack: React, Next.js, Node.js, MongoDB y AWS. [COMPLETAR: qué parte usa cada tecnología y qué servicios de AWS.]
 
@@ -59,8 +82,10 @@ Stack: React, Next.js, Node.js, MongoDB y AWS. [COMPLETAR: qué parte usa cada t
 
 [COMPLETAR]
 
-{/* Ideas: pasar de portal de consulta a e-learning sin romper lo existente; autenticación compartida entre frontends; manejo de archivos de certificados; seguimiento del progreso de los cursos. Escribe solo lo que realmente hiciste. */}
+{/* Ideas: pasar de portal de consulta a e-learning sin romper lo existente; autenticación compartida entre frontends; búsqueda de certificados por RUT y protección de esos datos; seguimiento del progreso de los cursos. Escribe solo lo que realmente hiciste. */}
 
 ## Resultado
+
+El sitio corporativo y el verificador de certificados están en producción.
 
 [COMPLETAR: qué cambió para el cliente. Incluye cifras solo si son reales y puedes publicarlas.]

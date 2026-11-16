@@ -31,6 +31,8 @@ export const projectFrontmatterSchema = z
     stack: z.array(z.string().min(1)).min(1),
     liveUrl: z.url().optional(),
     repoUrl: z.url().optional(),
+    /** Enlaces adicionales con texto propio (otros sitios del mismo proyecto). */
+    links: z.array(z.strictObject({ label: z.string().min(1), url: z.url() })).optional(),
     /** Ruta dentro de /public, p. ej. /images/proyectos/mi-proyecto/portada.webp */
     cover: z.string().startsWith('/').optional(),
     coverAlt: z.string().min(1).optional(),

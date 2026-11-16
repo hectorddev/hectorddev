@@ -10,21 +10,23 @@ type FigureProps = {
   width: number;
   height: number;
   caption?: string;
+  /** Más angosta y centrada: para capturas verticales, cuadradas o de móvil. */
+  narrow?: boolean;
 };
 
 /**
  * Imagen con dimensiones reales (evita saltos de diseño) y pie opcional.
  * Uso en MDX: <Figure src="/images/..." alt="..." width={1600} height={900} caption="..." />
  */
-export function Figure({ src, alt, width, height, caption }: FigureProps) {
+export function Figure({ src, alt, width, height, caption, narrow }: FigureProps) {
   return (
-    <figure>
+    <figure className={narrow ? 'mx-auto max-w-sm' : undefined}>
       <Image
         src={src}
         alt={alt}
         width={width}
         height={height}
-        sizes={sizes}
+        sizes={narrow ? '384px' : sizes}
         className={imageClass}
       />
       {caption ? <figcaption>{caption}</figcaption> : null}

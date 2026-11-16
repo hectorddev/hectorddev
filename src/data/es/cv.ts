@@ -22,7 +22,7 @@ export const cv = {
       context: 'Remoto · clientes en Chile y Venezuela',
       period: '[COMPLETAR: periodo]',
       highlights: [
-        'FSM SpA (Chile), como subcontratado de SkyAds: plataforma de certificación para el sector minero que evolucionó a una intranet de e-learning, con frontends independientes para administración, coaches, estudiantes y autenticación.',
+        'FSM SpA (Chile), como subcontratado de SkyAds: sitio corporativo (fsmspa.com) y verificador público de certificados por RUT (certificate.fsmspa.com) en Next.js; la plataforma evolucionó a una intranet de e-learning con frontends independientes para administración, coaches, estudiantes y autenticación.',
         'Constructor Center (Chile): e-commerce con catálogo, gestión de ofertas e integración de pasarela de pago.',
         'Alma Llanera Táchira: sistema en producción de reportes semanales y asistencia para la orquesta regional, con panel de coordinación.',
         'Nueva Copiapó (Chile): portal de noticias con panel de administración interno.',

@@ -76,8 +76,20 @@ export default async function ProjectPage({ params }: Props) {
           </h1>
           <p className="max-w-3xl text-lg text-muted sm:text-xl">{project.summary}</p>
 
-          {project.liveUrl || project.repoUrl ? (
+          {project.liveUrl || project.repoUrl || project.links?.length ? (
             <div className="flex flex-wrap gap-3">
+              {project.links?.map((link, index) => (
+                <ButtonLink
+                  key={link.url}
+                  href={link.url}
+                  external
+                  variant={index === 0 && !project.liveUrl ? 'primary' : 'secondary'}
+                  icon={<ArrowUpRightIcon />}
+                >
+                  {link.label}
+                  <span className="sr-only"> {dict.a11y.newTab}</span>
+                </ButtonLink>
+              ))}
               {project.liveUrl ? (
                 <ButtonLink href={project.liveUrl} external icon={<ArrowUpRightIcon />}>
                   {dict.projects.live}
