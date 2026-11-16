@@ -23,7 +23,7 @@ export const cv = {
       period: '[COMPLETAR: periodo]',
       highlights: [
         'FSM SpA (Chile), como subcontratado de SkyAds: sitio corporativo (fsmspa.com) y verificador público de certificados por RUT (certificate.fsmspa.com) en Next.js; la plataforma evolucionó a una intranet de e-learning con frontends independientes para administración, coaches, estudiantes y autenticación.',
-        'Constructor Center (Chile): e-commerce con catálogo, gestión de ofertas e integración de pasarela de pago.',
+        'Constructor Center (Chile): e-commerce de ferretería y materiales de construcción (constructorcenter.cl) con catálogo por sucursal, gestión de ofertas e integración de pasarela de pago.',
         'Alma Llanera Táchira: sistema en producción de reportes semanales y asistencia para la orquesta regional, con panel de coordinación.',
         'Nueva Copiapó (Chile): portal de noticias con panel de administración interno.',
         'Knits and Weaves (Chile): tienda en Shopify, desarrollo y personalización.',

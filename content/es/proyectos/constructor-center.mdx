@@ -1,25 +1,30 @@
 ---
 title: Constructor Center
-summary: E-commerce completo con catálogo de productos, gestión de ofertas e integración de pasarela de pago.
+summary: E-commerce de ferretería y materiales de construcción con catálogo por sucursal, gestión de ofertas e integración de pasarela de pago.
 client: Constructor Center (Chile)
 year: '[COMPLETAR]'
 role: '[COMPLETAR]'
+# Next.js verificado en el HTML público del sitio.
 stack:
   - React
+  - Next.js
   - Node.js
   - MongoDB
+liveUrl: https://www.constructorcenter.cl
+status: en-produccion
 featured: true
 order: 3
-# liveUrl: https://...   [COMPLETAR si la tienda está en línea]
-# cover: /images/proyectos/constructor-center/portada.webp   [COMPLETAR]
-# coverAlt: Catálogo de la tienda con productos de ejemplo     [COMPLETAR]
+cover: /images/proyectos/constructor-center/portada.webp
+coverAlt: Página de inicio de la tienda Constructor Center con buscador, selector de sucursal, carrito, menú de categorías y un banner de nuevo stock.
 ---
 
 {/* Código privado del cliente. */}
 
 ## Contexto
 
-Constructor Center es un cliente de Chile. [COMPLETAR: qué vende, a qué público y por qué necesitaba una tienda en línea.]
+Constructor Center es una ferretería y tienda de materiales de construcción con 6 sucursales en Chile (Los Ángeles, Santa Bárbara, Chillán, Temuco, Puerto Montt y Castro) y despacho a todo el país.
+
+[COMPLETAR: por qué necesitaban la tienda en línea.]
 
 ## Problema
 
@@ -31,20 +36,33 @@ Constructor Center es un cliente de Chile. [COMPLETAR: qué vende, a qué públi
 
 ## Solución y arquitectura
 
-Un e-commerce completo con:
+[constructorcenter.cl](https://www.constructorcenter.cl) es un e-commerce completo:
 
-- **Catálogo** de productos.
+- **Catálogo por sucursal:** la persona elige su sucursal y ve los productos disponibles en ella.
+- **Navegación del catálogo:** categorías y subcategorías, buscador, filtros por precio y marca, y orden de resultados.
 - **Gestión de ofertas.**
-- **Integración de pasarela de pago.** [COMPLETAR: qué pasarela.]
+- **Cuentas de cliente y carrito de compras.**
+- **Solicitud de presupuesto** sin costo.
+- **Integración de pasarela de pago.** El sitio muestra Webpay como medio de pago. [CONFIRMAR: ¿es la pasarela que integraste?]
 
-Stack: React, Node.js y MongoDB. [COMPLETAR: cómo se organizan el frontend, la API y el panel de administración, y dónde se despliega.]
+<Figure
+  src="/images/proyectos/constructor-center/catalogo.webp"
+  alt="Categoría Pinturas de la tienda: panel de filtros por orden, precio y marca a la izquierda, banner de envíos y grilla de productos."
+  width={1600}
+  height={900}
+  caption="Catálogo con filtros por precio y marca."
+/>
+
+Stack: React, Next.js, Node.js y MongoDB. [COMPLETAR: cómo se organizan el frontend, la API y el panel de administración, y dónde se despliega.]
 
 ## Retos técnicos
 
 [COMPLETAR]
 
-{/* Ideas: integración y confirmación de pagos (webhooks, estados de la orden); reglas de las ofertas; rendimiento del catálogo. Escribe solo lo que realmente hiciste. */}
+{/* Ideas: stock y catálogo por sucursal; integración y confirmación de pagos (estados de la orden); reglas de las ofertas; rendimiento de un catálogo grande. Escribe solo lo que realmente hiciste. */}
 
 ## Resultado
+
+La tienda está en producción.
 
 [COMPLETAR: qué cambió para el negocio. Cifras solo si son reales y publicables.]
