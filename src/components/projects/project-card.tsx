@@ -37,7 +37,10 @@ export function ProjectCard({
           sizes="(min-width: 1024px) 480px, (min-width: 640px) 50vw, 100vw"
         />
         {project.status ? (
-          <StatusBadge status={project.status} className="absolute top-11 right-3" />
+          <StatusBadge
+            status={project.status}
+            className={cn('absolute right-3 shadow-sm', project.cover ? 'top-3' : 'top-11')}
+          />
         ) : null}
       </div>
 

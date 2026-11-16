@@ -16,9 +16,11 @@ stack:
   - Vercel
   - Render
 repoUrl: https://github.com/hectorddev/reporte-ensayos
+# [CONFIRMAR: ¿enlazar la app en producción? El formulario es público y no pide inicio de sesión.]
+status: en-produccion
 order: 5
-# cover: /images/proyectos/reporte-ensayos/portada.webp   [COMPLETAR: captura con datos ficticios]
-# coverAlt: Formulario de reporte mensual con datos de ejemplo [COMPLETAR]
+cover: /images/proyectos/reporte-ensayos/portada.webp
+coverAlt: Formulario de nuevo reporte mensual de Reporte de Ensayos, con selector de mes y año, agrupación y calendario de ensayos.
 ---
 
 {/* REGLA: no mostrar nombres reales ni datos de estudiantes. Capturas solo con datos ficticios. */}
@@ -27,7 +29,9 @@ order: 5
 
 Las agrupaciones musicales y orquestales del Sistema de Orquestas reportan cada mes sus indicadores. Reporte de Ensayos es el módulo que gestiona esos reportes mensuales.
 
-[COMPLETAR: quién lo usa y cómo encaja con el sistema de [Alma Llanera Táchira](/proyectos/alma-llanera-tachira).]
+Es para la misma institución que [Alma Llanera Táchira](/proyectos/alma-llanera-tachira) y está en producción.
+
+[COMPLETAR: quién lo usa y cómo se reparten el trabajo los dos sistemas.]
 
 ## Problema
 
@@ -46,6 +50,8 @@ La aplicación está dividida en tres piezas, todas en planes gratuitos:
 | Frontend      | React + Vite + TypeScript  | Vercel     |
 | API           | Node.js + Express + Prisma | Render     |
 | Base de datos | PostgreSQL                 | Neon       |
+
+Cada reporte mensual se arma por agrupación y tiene cuatro partes: las fechas de ensayo del mes (se marcan en un calendario), el repertorio trabajado, la matrícula activa por categoría (niños, niñas, adolescentes y adultos, por sexo) y observaciones. Al final, el reporte se cierra. La app también tiene una vista de reportes guardados y una sección de constancias.
 
 Incluye un panel de administración protegido para ver, editar y eliminar los reportes mensuales, y genera constancias en PDF.
 
