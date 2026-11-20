@@ -114,11 +114,12 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    text-wrap: balance;
   }
 
-  p {
-    text-wrap: pretty;
+  /* balance solo en títulos principales: en todo el texto encarece el layout en móviles. */
+  h1,
+  h2 {
+    text-wrap: balance;
   }
 }
 
@@ -128,6 +129,20 @@
     background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
     background-size: 22px 22px;
     mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 75%);
+  }
+
+  /* Secciones fuera de pantalla: el navegador omite su layout y pintado hasta que se
+   * acercan al viewport. Reduce mucho el trabajo inicial en páginas largas. */
+  .defer-render {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+
+  /* Halo de color suave. Gradiente radial en vez de filter: blur(), que es muy
+   * costoso de pintar en móviles. */
+  .glow {
+    background-image: radial-gradient(closest-side, var(--glow), transparent);
+    pointer-events: none;
   }
 
   /* Subrayado tipo marcador fluorescente. */

@@ -17,7 +17,7 @@ export function LatestPosts({ index, dict, posts }: LatestPostsProps) {
   if (posts.length === 0) return null;
 
   return (
-    <section id="blog" aria-labelledby="blog-title" className="py-16 sm:py-24">
+    <section id="blog" aria-labelledby="blog-title" className="defer-render py-16 sm:py-24">
       <Container>
         <div data-reveal>
           <SectionHeading

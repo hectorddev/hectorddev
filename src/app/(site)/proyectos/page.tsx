@@ -23,9 +23,14 @@ export default async function ProjectsPage() {
       </SectionHeading>
 
       <ul className="grid gap-6 sm:grid-cols-2">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <li key={project.slug} data-reveal>
-            <ProjectCard project={project} headingLevel="h2" className="h-full" />
+            <ProjectCard
+              project={project}
+              headingLevel="h2"
+              priority={index < 2}
+              className="h-full"
+            />
           </li>
         ))}
       </ul>

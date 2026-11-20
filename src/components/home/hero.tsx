@@ -15,16 +15,13 @@ export function Hero({ dict, profile }: HeroProps) {
   return (
     <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
       <div aria-hidden="true" className="bg-dot-grid absolute inset-0 -z-10" />
-      <div
-        aria-hidden="true"
-        className="absolute -top-48 -right-40 -z-10 size-[38rem] rounded-full bg-[var(--glow)] blur-3xl"
-      />
+      <div aria-hidden="true" className="glow absolute -top-60 -right-52 -z-10 size-[46rem]" />
 
       <Container className="grid gap-12 pt-14 pb-20 sm:pt-20 sm:pb-28 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-16">
         <div className="flex flex-col items-start">
           <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-3 py-1 font-mono text-xs text-fg backdrop-blur">
             <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full rounded-full bg-accent-fg opacity-60 motion-safe:animate-ping" />
+              <span className="absolute inline-flex size-full rounded-full bg-accent-fg opacity-60 motion-safe:lg:animate-ping" />
               <span className="relative inline-flex size-2 rounded-full bg-accent-fg" />
             </span>
             {dict.hero.available}

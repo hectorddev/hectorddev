@@ -12,12 +12,15 @@ const MAX_TAGS = 4;
 type ProjectCardProps = {
   project: Project;
   headingLevel?: 'h2' | 'h3';
+  /** Carga la portada sin diferir: úsalo en las tarjetas visibles al cargar (LCP). */
+  priority?: boolean;
   className?: string;
 };
 
 export function ProjectCard({
   project,
   headingLevel: Heading = 'h3',
+  priority,
   className,
 }: ProjectCardProps) {
   const dict = getDictionary(project.locale);
@@ -34,6 +37,7 @@ export function ProjectCard({
       <div className="relative">
         <ProjectCover
           project={project}
+          priority={priority}
           sizes="(min-width: 1024px) 480px, (min-width: 640px) 50vw, 100vw"
         />
         {project.status ? (

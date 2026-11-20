@@ -11,7 +11,7 @@ type StackSectionProps = {
 
 export function StackSection({ index, dict, stack }: StackSectionProps) {
   return (
-    <section id="stack" aria-labelledby="stack-title" className="py-16 sm:py-24">
+    <section id="stack" aria-labelledby="stack-title" className="defer-render py-16 sm:py-24">
       <Container>
         <div data-reveal>
           <SectionHeading

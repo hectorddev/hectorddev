@@ -9,7 +9,7 @@ export function Contact({ index, dict }: { index: string; dict: Dictionary }) {
   const links = getSocialLinks(dict).filter((link) => link.external);
 
   return (
-    <section id="contacto" aria-labelledby="contacto-title" className="py-16 sm:py-24">
+    <section id="contacto" aria-labelledby="contacto-title" className="defer-render py-16 sm:py-24">
       <Container>
         <div
           data-reveal
@@ -18,7 +18,7 @@ export function Contact({ index, dict }: { index: string; dict: Dictionary }) {
           <div aria-hidden="true" className="bg-dot-grid absolute inset-0 -z-10" />
           <div
             aria-hidden="true"
-            className="absolute -bottom-40 -left-32 -z-10 size-[28rem] rounded-full bg-[var(--glow)] blur-3xl"
+            className="glow absolute -bottom-48 -left-40 -z-10 size-[36rem]"
           />
 
           <SectionHeading

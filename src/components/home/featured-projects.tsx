@@ -16,7 +16,11 @@ export function FeaturedProjects({ index, dict, projects }: FeaturedProjectsProp
   if (projects.length === 0) return null;
 
   return (
-    <section id="proyectos" aria-labelledby="proyectos-title" className="py-16 sm:py-24">
+    <section
+      id="proyectos"
+      aria-labelledby="proyectos-title"
+      className="defer-render py-16 sm:py-24"
+    >
       <Container>
         <div data-reveal>
           <SectionHeading

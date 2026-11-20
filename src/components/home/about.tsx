@@ -11,7 +11,7 @@ type AboutProps = {
 
 export function About({ index, dict, profile }: AboutProps) {
   return (
-    <section id="sobre-mi" aria-labelledby="sobre-mi-title" className="py-16 sm:py-24">
+    <section id="sobre-mi" aria-labelledby="sobre-mi-title" className="defer-render py-16 sm:py-24">
       <Container>
         <div data-reveal>
           <SectionHeading
