@@ -5,12 +5,14 @@ import config from '../../../../../keystatic.config';
  * Autenticación con GitHub y operaciones del panel de contenido.
  *
  * En modo GitHub, Keystatic exige KEYSTATIC_GITHUB_CLIENT_ID,
- * KEYSTATIC_GITHUB_CLIENT_SECRET y KEYSTATIC_SECRET. Mientras no estén
- * configuradas (ver docs/SITE.md), la ruta responde 503 en lugar de romper
- * el build del sitio.
+ * KEYSTATIC_GITHUB_CLIENT_SECRET y KEYSTATIC_SECRET. En producción, mientras
+ * no estén configuradas (ver docs/SITE.md), la ruta responde 503 en lugar de
+ * romper el build. En desarrollo siempre se usa el handler de Keystatic,
+ * porque sin credenciales es el que sirve el asistente para crear la GitHub App.
  */
 const isConfigured =
   config.storage.kind === 'local' ||
+  process.env.NODE_ENV === 'development' ||
   Boolean(
     process.env.KEYSTATIC_GITHUB_CLIENT_ID &&
     process.env.KEYSTATIC_GITHUB_CLIENT_SECRET &&

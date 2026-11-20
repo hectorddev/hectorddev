@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  // Keystatic en modo GitHub redirige localhost → 127.0.0.1 (requisito de OAuth).
+  // Next 16 bloquea en desarrollo los recursos /_next pedidos desde otro origen.
+  allowedDevOrigins: ['127.0.0.1'],
 };
 
 /**

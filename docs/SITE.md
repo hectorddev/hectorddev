@@ -127,18 +127,23 @@ El modo GitHub necesita una GitHub App. Keystatic la crea por ti:
 
 1. En local, crea un archivo `.env.local` con `NEXT_PUBLIC_KEYSTATIC_STORAGE=github` y corre
    `npm run dev`.
-2. Abre `http://localhost:3000/keystatic` y sigue el asistente para crear la GitHub App
-   (ponle un nombre como `hectorddev-panel`). Al terminar, Keystatic escribe en `.env.local`:
+2. Abre `http://localhost:3000/keystatic`. En modo GitHub, Keystatic te redirige a
+   `http://127.0.0.1:3000/keystatic` (lo exige el OAuth de GitHub; el sitio ya lo permite en
+   desarrollo). Pulsa _Log in with GitHub_ y llegarás al asistente _Keystatic Setup_.
+3. En el asistente, en _Deployed App URL_ pon la URL de producción (por ejemplo la de Vercel o tu
+   dominio; si aún no la sabes, déjalo vacío) y pulsa _Create GitHub App_. GitHub te pedirá un
+   nombre para la app (por ejemplo `hectorddev-panel`).
+4. Al volver, Keystatic escribe en el archivo `.env` (ignorado por git):
    `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET` y
-   `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`.
-3. Instala la app en el repositorio `hectorddev/hectorddev` cuando GitHub te lo pida.
-4. Copia esas cuatro variables a Vercel → _Settings → Environment Variables_ (Production y
+   `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`. Reinicia `npm run dev` para que las lea.
+5. Instala la app en el repositorio `hectorddev/hectorddev` cuando GitHub te lo pida.
+6. Copia esas cuatro variables a Vercel → _Settings → Environment Variables_ (Production y
    Preview) y redespliega.
-5. En la configuración de la GitHub App (GitHub → _Settings → Developer settings → GitHub
-   Apps_), agrega como _Callback URL_:
-   `https://<tu-dominio>/api/keystatic/github/oauth/callback` (y la del dominio de Vercel si
-   también lo usas).
-6. Quita `NEXT_PUBLIC_KEYSTATIC_STORAGE=github` de `.env.local` para volver al modo local.
+7. Si dejaste vacío _Deployed App URL_, en la configuración de la GitHub App (GitHub →
+   _Settings → Developer settings → GitHub Apps_) agrega como _Callback URL_:
+   `https://<tu-dominio>/api/keystatic/github/oauth/callback`.
+8. Para volver a escribir en local sin GitHub, quita `NEXT_PUBLIC_KEYSTATIC_STORAGE=github` de
+   `.env.local`.
 
 Mientras esas variables no existan, `/keystatic` en producción muestra el botón de GitHub pero la
 API responde "El panel de contenido aún no está configurado"; el resto del sitio funciona normal.
