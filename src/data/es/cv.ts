@@ -20,7 +20,7 @@ export const cv = {
       role: 'Desarrollador Full Stack',
       organization: 'Freelance y subcontratado',
       context: 'Remoto · clientes en Chile y Venezuela',
-      period: '[COMPLETAR: periodo]',
+      period: '2021 - 2025',
       highlights: [
         'FSM SpA (Chile), como subcontratado de SkyAds: sitio corporativo (fsmspa.com), verificador público de certificados por RUT (certificate.fsmspa.com) en Next.js y portal de estudiantes (auth.fsmspa.com); la plataforma evolucionó a una intranet de e-learning con frontends independientes para administración, coaches, estudiantes y autenticación.',
         'Constructor Center (Chile): e-commerce de ferretería y materiales de construcción (constructorcenter.cl) con catálogo por sucursal, gestión de ofertas e integración de pagos con Webpay.',
@@ -34,13 +34,13 @@ export const cv = {
   education: [
     {
       degree: 'Ingeniería en Informática',
-      institution: '[COMPLETAR: universidad]',
-      period: '[COMPLETAR: año]',
+      institution: 'Instituto Universitario de Tecnología de Venezuela',
+      period: '2019 - 2024',
     },
   ],
 
   languages: [
     { name: 'Español', level: 'Nativo' },
-    { name: 'Inglés', level: '[COMPLETAR: nivel]' },
+    { name: 'Inglés', level: 'Intermedio' },
   ],
 };

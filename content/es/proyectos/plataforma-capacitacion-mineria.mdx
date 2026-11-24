@@ -2,8 +2,8 @@
 title: Plataforma de certificación y capacitación para minería
 summary: Sitio corporativo, verificador público de certificados e intranet de e-learning para FSM SpA, empresa chilena de capacitación y servicios para la industria y la minería.
 client: FSM SpA (Chile) · subcontratado por SkyAds
-year: '[COMPLETAR]'
-role: '[COMPLETAR]'
+year: 2023-2025
+role: Full Stack Developer
 stack:
   - React
   - Next.js
@@ -32,14 +32,6 @@ FSM SpA es una empresa con casa matriz en Iquique, Chile, que presta servicios t
 
 Para FSM construí su sitio corporativo y la plataforma de certificación y capacitación. La plataforma empezó como un portal web para consultar los certificados de los trabajadores del sector minero y, con el tiempo, evolucionó a una intranet de e-learning donde la empresa crea cursos y capacita a su personal en línea.
 
-## Problema
-
-[COMPLETAR: qué problema había antes del portal (por ejemplo, cómo se consultaban o validaban los certificados) y qué motivó el paso a una plataforma de capacitación.]
-
-## Mi rol
-
-[COMPLETAR: qué partes construiste, con quién trabajabas y qué decisiones técnicas tomaste.]
-
 ## Solución y arquitectura
 
 El proyecto tiene tres piezas:
@@ -47,8 +39,6 @@ El proyecto tiene tres piezas:
 ### Sitio corporativo
 
 [fsmspa.com](https://www.fsmspa.com), hecho con Next.js. Presenta la empresa, sus servicios, noticias y capacitaciones, y da acceso directo al portal de estudiantes y clientes y al verificador de certificaciones.
-
-[COMPLETAR: de dónde salen las noticias y los cursos (panel de administración, CMS, API).]
 
 ### Verificador de certificados
 
@@ -69,23 +59,12 @@ La empresa crea cursos y capacita a su personal en línea. La arquitectura separ
 
 | Frontend       | Para qué sirve |
 | -------------- | -------------- |
-| Administración | [COMPLETAR]    |
-| Coaches        | [COMPLETAR]    |
-| Estudiantes    | [COMPLETAR]    |
-| Autenticación  | Inicio de sesión del portal de estudiantes y clientes ([auth.fsmspa.com](https://auth.fsmspa.com)). [COMPLETAR: cómo se comparte la sesión con los demás frontends.] |
-
-Stack: React, Next.js, Node.js, MongoDB y AWS. [COMPLETAR: qué parte usa cada tecnología y qué servicios de AWS.]
-
-{/* Ideas para desarrollar: por qué separar en varios frontends, cómo se comparte la sesión entre ellos, cómo se despliega cada uno. */}
-
-## Retos técnicos
-
-[COMPLETAR]
-
-{/* Ideas: pasar de portal de consulta a e-learning sin romper lo existente; autenticación compartida entre frontends; búsqueda de certificados por RUT y protección de esos datos; seguimiento del progreso de los cursos. Escribe solo lo que realmente hiciste. */}
+| Administración | Administrar    |
+| Coaches        | Cargar Curso   |
+| Estudiantes    | Ver Cursos    |
+| Autenticación  | Inicio de sesión del portal de estudiantes y clientes ([auth.fsmspa.com](https://auth.fsmspa.com))
+Stack: React, Next.js, Node.js, MongoDB y AWS.
 
 ## Resultado
 
 El sitio corporativo y el verificador de certificados están en producción.
-
-[COMPLETAR: qué cambió para el cliente. Incluye cifras solo si son reales y puedes publicarlas.]

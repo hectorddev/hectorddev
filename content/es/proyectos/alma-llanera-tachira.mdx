@@ -2,8 +2,8 @@
 title: Alma Llanera Táchira — reportes y asistencia
 summary: Sistema en producción para la orquesta regional del programa Alma Llanera en Táchira. Los núcleos cargan reportes semanales, la coordinación los revisa y aprueba en un panel, y el sistema genera los archivos oficiales de cada semana.
 client: Sistema de Orquestas de Venezuela · programa Alma Llanera, Táchira
-year: '[COMPLETAR]'
-role: '[COMPLETAR]'
+year: 2026  
+role: Full Stack Developer
 # [CONFIRMAR: resto del stack (base de datos, autenticación, hosting). El HTML público usa Tailwind CSS.]
 stack:
   - Next.js
@@ -33,11 +33,9 @@ Cada semana, la coordinación estatal tiene que entregar un instrumento de segui
 
 La información de cada núcleo había que consolidarla a nivel estatal y ese proceso tomaba tiempo.
 
-[COMPLETAR: cómo se recopilaban antes los reportes y la asistencia, y qué fallaba.]
-
 ## Mi rol
 
-[COMPLETAR]
+Diseño e Implementación del Software.
 
 ## Solución y arquitectura
 
@@ -48,8 +46,6 @@ El sistema tiene tres tipos de acceso, pensados para cada responsable:
 - **Coordinación y dirección:** panel con inicio de sesión que centraliza los reportes de todo el estado.
 
 La página de inicio le indica a cada perfil cómo entrar y recuerda que los enlaces privados no se comparten en grupos: quien tenga un enlace puede registrar en nombre de quien lo recibió.
-
-[COMPLETAR: por qué elegiste enlaces privados para núcleos y seccionales, y cómo se generan y revocan.]
 
 ### El ciclo de cada semana
 
@@ -87,16 +83,9 @@ El panel también incluye mensajes, la gestión de los enlaces privados y, para 
 
 Stack: Next.js. [CONFIRMAR: base de datos, autenticación del panel, generación de los Excel y hosting.]
 
-## Retos técnicos
-
-[COMPLETAR]
-
-{/* Ideas: seguridad de los enlaces privados (alcance por núcleo, revocación); revisión por actividad y versiones del reporte; generar los Excel con los formatos exactos que piden; guardar copia exacta de lo enviado. Escribe solo lo que realmente hiciste. */}
-
 ## Resultado
 
 El sistema está en producción, centraliza los reportes a nivel estatal y reduce el tiempo de consolidación.
 
-[COMPLETAR: cifras reales, si las tienes (por ejemplo, cuánto tardaba antes la consolidación y cuánto tarda ahora).]
-
+5 semanas de uso. 95% de efectividad en envío de reporte, donde antes era el 40%.
 Proyecto relacionado: [Reporte de Ensayos](/proyectos/reporte-ensayos), el módulo de indicadores mensuales para las agrupaciones musicales de la misma institución.
