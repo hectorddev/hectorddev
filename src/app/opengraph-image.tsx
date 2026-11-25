@@ -16,6 +16,9 @@ export default async function Image() {
     kicker: 'hola, soy',
     title: profile.name,
     description: `${profile.valueProp.before}${profile.valueProp.highlight}${profile.valueProp.after}`,
-    tags: profile.headline.split(' · ').slice(1),
+    tags: (profile.headline.split('|')[1] ?? profile.headline)
+      .split('·')
+      .map((item) => item.trim())
+      .filter(Boolean),
   });
 }

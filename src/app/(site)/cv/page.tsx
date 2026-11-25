@@ -48,7 +48,8 @@ export default async function CvPage() {
           <p className="font-mono text-sm text-fg sm:text-base">{profile.headline}</p>
           <p className="inline-flex items-center gap-2 text-sm text-muted">
             <MapPinIcon aria-hidden="true" />
-            {profile.location} · {profile.timezone} · {dict.hero.available.toLowerCase()}
+            {profile.location} · {profile.timezone} ·{' '}
+            {dict.hero.available.replace(/^./, (char) => char.toLowerCase())}
           </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
             {links.map((link) => (

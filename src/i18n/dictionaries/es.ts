@@ -7,7 +7,7 @@ export const es = {
     siteName: 'Hector Márquez',
     siteTitle: 'Hector Márquez — Desarrollador Full Stack',
     siteDescription:
-      'Desarrollador Full Stack con 7 años construyendo plataformas web, e-commerce y sistemas de gestión con React, Next.js, Node.js y AWS. Portafolio, casos de estudio y blog técnico.',
+      'Desarrollador Full Stack con 5+ años construyendo plataformas web, e-commerce y sistemas de gestión con React, Next.js, Node.js y AWS. Portafolio, casos de estudio y blog técnico.',
   },
   a11y: {
     skipToContent: 'Saltar al contenido',
@@ -31,7 +31,7 @@ export const es = {
     ctaProjects: 'Ver proyectos',
     ctaCv: 'Descargar CV',
     ctaContact: 'Contacto',
-    available: 'Disponible para trabajo remoto',
+    available: 'Disponible para oportunidades remotas en LATAM e internacionales',
   },
   home: {
     aboutLabel: 'sobre-mí',

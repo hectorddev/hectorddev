@@ -12,7 +12,7 @@ export type CvExperience = {
 
 export const cv = {
   summary:
-    'Desarrollador Full Stack e Ingeniero en Informática con 7 años de experiencia construyendo plataformas web, e-commerce y sistemas de gestión para clientes en Chile y Venezuela, principalmente como freelance y como desarrollador subcontratado. Trabajo con React, Next.js, Node.js y AWS, y me gusta llevar un producto desde la primera versión hasta producción. Busco sumarme a un equipo en remoto.',
+    'Desarrollador Full Stack e Ingeniero en Informática con 5+ años de experiencia construyendo plataformas web, e-commerce y sistemas de gestión para clientes en Chile y Venezuela, principalmente como freelance y como desarrollador subcontratado. Trabajo con React, Next.js, Node.js y AWS, y me gusta llevar un producto desde la primera versión hasta producción. Busco sumarme a un equipo en remoto.',
 
   // Si quieres, separa esta entrada por cliente o empresa, cada una con sus fechas.
   experience: [
